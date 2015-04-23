@@ -1,0 +1,4 @@
+# vim python-mode rope
+*.pyc
+/venv
+/target
