@@ -3,15 +3,15 @@ MAINTAINER Ciprian Ciubotariu <ciprianc@gmail.com>
 
 # Install needed OS packages
 RUN apt-get update
-RUN apt-get upgrade
-RUN DEBIAN_FRONTEND=noninteractive apt-get -yq install python-pip python-virtualenv python-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get -yq upgrade
+RUN DEBIAN_FRONTEND=noninteractive apt-get -yq install python-pip python-virtualenv python-dev curl
 RUN rm -rf /var/lib/apt/lists/*
 
 # Add this folder to /app
 ADD / /app
 
 # Install required pips
-RUN pip install -q -r --upgrade /app/requirements.txt
+RUN pip install -q --upgrade -r /app/requirements.txt
 
 # Expose port from inside the container
 EXPOSE 8000
