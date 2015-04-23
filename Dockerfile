@@ -20,4 +20,4 @@ EXPOSE 8000
 WORKDIR /app
 
 # Run the app
-CMD gunicorn --pythonpath hello_flask hello_flask_web:app -k gevent --log-config logging.config
+CMD gunicorn --pythonpath hello_flask hello_flask_web:app -b 0.0.0.0:8000 -k gevent --log-config logging.config
