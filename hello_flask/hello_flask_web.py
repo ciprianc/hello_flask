@@ -25,6 +25,11 @@ def root_url(delay=0):
 def env_url():
     """ Return all environment variables """
     return json.jsonify(os.environ.items())
+    
+@app.route('/ping/ping')
+def ping():
+    """ Return empty page """
+    return ('', 204)
 
 
 if __name__ == '__main__':
