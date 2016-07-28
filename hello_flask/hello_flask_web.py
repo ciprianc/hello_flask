@@ -19,13 +19,17 @@ def root_url(delay=0):
         sleep(delay)
     return 'Hello world!'
 
+@app.route('/bacon')
+def bacon_url(delay=0):
+    """ Returns the place to buy the bacon """
+    return 'Bankside Cafe, London, Southbank'
 
 @app.route('/env/')
 @app.route('/env')
 def env_url():
     """ Return all environment variables """
     return json.jsonify(os.environ.items())
-    
+
 @app.route('/ping/ping')
 def ping():
     """ Return empty page """
