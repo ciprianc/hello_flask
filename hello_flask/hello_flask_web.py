@@ -26,6 +26,7 @@ def bacon_url(delay=0):
 
 @app.route('/env/')
 @app.route('/env')
+@app.route('/hello_flask/env')
 def env_url():
     """ Return all environment variables """
     return json.jsonify(os.environ.items())
