@@ -1,4 +1,4 @@
-from flask import Flask, json
+from flask import Flask, json, redirect, request
 from time import sleep
 import logging
 import os
@@ -36,6 +36,14 @@ def ping():
     """ Return empty page """
     return ('', 204)
 
+@app.route('/redirect-me-static')
+def redir_static():
+    redir_url = "{u}/../bacon".format(u=request.url)
+    return redirect(redir_url, code=302)
+
+@app.route('/redirect-me-relative')
+def redir_relative():
+    return redirect("/bacon", code=302)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)  # pragma: no cover
